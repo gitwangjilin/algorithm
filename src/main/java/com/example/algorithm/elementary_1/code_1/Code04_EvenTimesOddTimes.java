@@ -32,7 +32,8 @@ public class Code04_EvenTimesOddTimes {
         int onlyOne = 0; // eor'
         for (int i = 0; i < arr.length; i++) {
             //  arr[1] =  111100011110000
-            // rightOne=  000000000010000
+            // rightOn
+            // e=  000000000010000
             if ((arr[i] & rightOne) != 0) {
                 onlyOne ^= arr[i];
             }
