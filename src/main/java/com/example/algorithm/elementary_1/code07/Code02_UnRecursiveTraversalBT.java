@@ -2,6 +2,9 @@ package com.example.algorithm.elementary_1.code07;
 
 import java.util.Stack;
 
+/**
+ * 先序中序后序非递归遍历
+ */
 public class Code02_UnRecursiveTraversalBT {
     public static void main(String[] args) {
         Node node = new Node(1);

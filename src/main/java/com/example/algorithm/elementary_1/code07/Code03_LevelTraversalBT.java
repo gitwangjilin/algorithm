@@ -3,6 +3,9 @@ package com.example.algorithm.elementary_1.code07;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 层次遍历
+ */
 public class Code03_LevelTraversalBT {
     public static void main(String[] args) {
         Node head = null;
@@ -26,10 +29,10 @@ public class Code03_LevelTraversalBT {
         while (!queue.isEmpty()) {
             head = queue.poll();
             System.out.println(head.value);
-            if(head.left!=null){
+            if (head.left != null) {
                 queue.add(head.left);
             }
-            if(head.right!=null){
+            if (head.right != null) {
                 queue.add(head.right);
             }
         }
