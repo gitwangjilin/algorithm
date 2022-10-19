@@ -1,6 +1,4 @@
-package com.example.algorithm.elementary_1.code_1;
-
-import java.util.Arrays;
+package com.example.algorithm.elementary_1.code01;
 
 /**
  * 选择排序

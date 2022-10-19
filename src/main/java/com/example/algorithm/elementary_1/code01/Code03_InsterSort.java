@@ -1,4 +1,4 @@
-package com.example.algorithm.elementary_1.code_1;
+package com.example.algorithm.elementary_1.code01;
 
 import java.util.Arrays;
 

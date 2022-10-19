@@ -1,4 +1,4 @@
-package com.example.algorithm.elementary_1.code_1;
+package com.example.algorithm.elementary_1.code01;
 
 public class Code04_EvenTimesOddTimes {
     public static void main(String[] args) {

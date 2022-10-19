@@ -1,4 +1,4 @@
-package com.example.algorithm.elementary_1.code_2;
+package com.example.algorithm.elementary_1.code02;
 
 public class LinkedListTest {
     public static void main(String[] args) {
