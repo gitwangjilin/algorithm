@@ -31,6 +31,16 @@ public class Code01_ReverseList {
         }
     }
 
+    public static class DoubleNode {
+        public int value;
+        public DoubleNode last;
+        public DoubleNode next;
+
+        public DoubleNode(int data) {
+            value = data;
+        }
+    }
+
     /**
      * 反转单链表
      *
@@ -60,6 +70,30 @@ public class Code01_ReverseList {
     }
 
     /**
+     * 双向链表反转
+     *
+     * @param head
+     * @return
+     */
+    public static DoubleNode reverseDoubleList(DoubleNode head) {
+        //如果链表为空或者只一个值就不用反转
+        if (head == null || head.next == null) {
+            return head;
+        }
+        DoubleNode pro = null;
+        DoubleNode next;
+        while (head != null) {
+            next = head.next;
+            head.next = pro;
+            head.last = next;
+            pro = head;
+            head = next;
+        }
+        return pro;
+    }
+
+
+    /**
      * 打印链表
      *
      * @param head
@@ -75,12 +109,19 @@ public class Code01_ReverseList {
     }
 
     public static void main(String[] args) {
+        //单链表
         Node node = new Node(0);
         node.next = new Node(1);
         node.next.next = new Node(2);
         node.next.next.next = new Node(3);
         //打印反转后的值
         println(reverseLinkedList(node));
+        //双向链表
+        DoubleNode doubleNode = new DoubleNode(1);
+        doubleNode.next = new DoubleNode(2);
+        doubleNode.last = doubleNode;
+        doubleNode.next.next = new DoubleNode(3);
+        doubleNode.last.last = doubleNode.next;
     }
 
 }
