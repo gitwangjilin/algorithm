@@ -23,7 +23,35 @@ public class Code04_RingArray {
         private final int limit;
 
         public MyQueue(int limit) {
+            arr = new int[limit];
+            push = 0;
+            polli = 0;
+            size = 0;
             this.limit = limit;
+        }
+
+        /**
+         * 弹栈
+         *
+         * @return
+         */
+        public int pop() {
+            if (size == 0) {
+                throw new RuntimeException("栈空了，不能再拿了");
+            }
+            size--;
+            int ans = arr[polli];
+            polli = nextIndex(polli);
+            return ans;
+        }
+
+        /**
+         * 判定不为空
+         *
+         * @return
+         */
+        public boolean isEmpty() {
+            return size == 0;
         }
 
         /**
@@ -38,7 +66,6 @@ public class Code04_RingArray {
             size++;
             arr[polli] = value;
             polli = nextIndex(polli);
-
 
         }
 
