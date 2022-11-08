@@ -48,6 +48,7 @@ public class Code02_SmallSum {
         int i = 0;
         int res = 0;
         while (p1 <= mid && p2 <= right) {
+            //(right - p2 + 1) 计算出有多个右边数别左边多大的所有数
             res += arr[p1] < arr[p2] ? (right - p2 + 1) * arr[p1] : 0;
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
         }
