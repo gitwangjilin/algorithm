@@ -1,6 +1,8 @@
 package com.example.algorithm.elementary_1.code08;
 
-public class Code02_IsFull {
+import java.util.ArrayList;
+
+public class Code03_IsBST {
 
 	public static class Node {
 		public int value;
@@ -12,56 +14,73 @@ public class Code02_IsFull {
 		}
 	}
 
-	public static boolean isFull1(Node head) {
+	public static boolean isBST1(Node head) {
 		if (head == null) {
 			return true;
 		}
-		int height = h(head);
-		int nodes = n(head);
-		return (1 << height) - 1 == nodes;
-	}
-
-	public static int h(Node head) {
-		if (head == null) {
-			return 0;
+		ArrayList<Node> arr = new ArrayList<>();
+		in(head, arr);
+		for (int i = 1; i < arr.size(); i++) {
+			if (arr.get(i).value <= arr.get(i - 1).value) {
+				return false;
+			}
 		}
-		return Math.max(h(head.left), h(head.right)) + 1;
+		return true;
 	}
 
-	public static int n(Node head) {
+	public static void in(Node head, ArrayList<Node> arr) {
 		if (head == null) {
-			return 0;
+			return;
 		}
-		return n(head.left) + n(head.right) + 1;
+		in(head.left, arr);
+		arr.add(head);
+		in(head.right, arr);
 	}
 
-	public static boolean isFull2(Node head) {
+	public static boolean isBST2(Node head) {
 		if (head == null) {
 			return true;
 		}
-		Info all = process(head);
-		return (1 << all.height) - 1 == all.nodes;
+		return process(head).isBST;
 	}
 
 	public static class Info {
-		public int height;
-		public int nodes;
+		boolean isBST;
+		public int min;
+		public int max;
 
-		public Info(int h, int n) {
-			height = h;
-			nodes = n;
+		public Info(boolean is, int mi, int ma) {
+			isBST = is;
+			min = mi;
+			max = ma;
 		}
 	}
 
 	public static Info process(Node head) {
 		if (head == null) {
-			return new Info(0, 0);
+			return null;
 		}
 		Info leftInfo = process(head.left);
 		Info rightInfo = process(head.right);
-		int height = Math.max(leftInfo.height, rightInfo.height) + 1;
-		int nodes = leftInfo.nodes + rightInfo.nodes + 1;
-		return new Info(height, nodes);
+		int min = head.value;
+		int max = head.value;
+		if (leftInfo != null) {
+			min = Math.min(min, leftInfo.min);
+			max = Math.max(max, leftInfo.max);
+		}
+		if (rightInfo != null) {
+			min = Math.min(min, rightInfo.min);
+			max = Math.max(max, rightInfo.max);
+		}
+		boolean isBST = false;
+		if (
+			(leftInfo == null ? true : (leftInfo.isBST && leftInfo.max < head.value))
+			&&
+		    (rightInfo == null ? true : (rightInfo.isBST && rightInfo.min > head.value))
+		    		) {
+			isBST = true;
+		}
+		return new Info(isBST, min, max);
 	}
 
 	// for test
@@ -81,12 +100,12 @@ public class Code02_IsFull {
 	}
 
 	public static void main(String[] args) {
-		int maxLevel = 5;
+		int maxLevel = 4;
 		int maxValue = 100;
 		int testTimes = 1000000;
 		for (int i = 0; i < testTimes; i++) {
 			Node head = generateRandomBST(maxLevel, maxValue);
-			if (isFull1(head) != isFull2(head)) {
+			if (isBST1(head) != isBST2(head)) {
 				System.out.println("Oops!");
 			}
 		}
