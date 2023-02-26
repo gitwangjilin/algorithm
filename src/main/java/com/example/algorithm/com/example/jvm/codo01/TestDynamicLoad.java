@@ -7,28 +7,28 @@ public class TestDynamicLoad {
     }
 
     public static void main(String[] args) {
-        new A();
+        new A1();
         System.out.println("*************load test************");
-        B b = null;  //B不会加载，除非这里执行 new B()
+        B1 b = null;  //B不会加载，除非这里执行 new B()
     }
 }
 
-class A {
+class A1 {
     static {
         System.out.println("*************load A************");
     }
 
-    public A() {
+    public A1() {
         System.out.println("*************initial A************");
     }
 }
 
-class B {
+class B1 {
     static {
         System.out.println("*************load B************");
     }
 
-    public B() {
+    public B1() {
         System.out.println("*************initial B************");
     }
 }

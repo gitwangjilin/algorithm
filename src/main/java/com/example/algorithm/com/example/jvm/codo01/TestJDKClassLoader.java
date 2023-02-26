@@ -7,8 +7,12 @@ import java.net.URL;
 public class TestJDKClassLoader {
 
     public static void main(String[] args) {
+        Launcher launcher = new Launcher();
+        //引导类加载器
         System.out.println(String.class.getClassLoader());
+        //扩展类加载器
         System.out.println(com.sun.crypto.provider.DESKeyFactory.class.getClassLoader().getClass().getName());
+        //应用程序类价值器
         System.out.println(TestJDKClassLoader.class.getClassLoader().getClass().getName());
 
         System.out.println();
