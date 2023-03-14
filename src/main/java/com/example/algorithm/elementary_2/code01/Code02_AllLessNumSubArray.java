@@ -79,7 +79,5 @@ public class Code02_AllLessNumSubArray {
 		int num = 5;
 		printArray(arr);
 		System.out.println(getNum(arr, num));
-
 	}
-
 }

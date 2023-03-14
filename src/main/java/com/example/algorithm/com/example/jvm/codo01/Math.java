@@ -1,6 +1,5 @@
 package com.example.algorithm.com.example.jvm.codo01;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 public class Math {
     public static final int initData = 666;
