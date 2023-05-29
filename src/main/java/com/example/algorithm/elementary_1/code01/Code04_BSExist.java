@@ -24,8 +24,7 @@ public class Code04_BSExist {
     private static boolean exist(int[] arrs, int i) {
         int life = 0;
         int right = arrs.length - 1;
-
-        while (life < right) {
+        while (life <= right) {
             int mid = (life + right) >> 1;
             if (arrs[mid] == i) {
                 return true;
@@ -34,10 +33,9 @@ public class Code04_BSExist {
             } else {
                 life = mid + 1;
             }
-
         }
-
-
         return false;
     }
 }
+
+

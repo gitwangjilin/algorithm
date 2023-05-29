@@ -55,6 +55,7 @@ public class Code01_LowestLexicography {
 		if (strs == null || strs.length == 0) {
 			return "";
 		}
+		//strs = ["bca", "eced", "dea", "ebc", "bccc"];
 		Arrays.sort(strs, new MyComparator());
 		String res = "";
 		for (int i = 0; i < strs.length; i++) {
@@ -95,13 +96,13 @@ public class Code01_LowestLexicography {
 		int arrLen = 6;
 		int strLen = 5;
 		int testTimes = 100000;
-		for (int i = 0; i < testTimes; i++) {
+//		for (int i = 0; i < testTimes; i++) {
 			String[] arr1 = generateRandomStringArray(arrLen, strLen);
 			String[] arr2 = copyStringArray(arr1);
 			if (!lowestString1(arr1).equals(lowestString2(arr2))) {
 				System.out.println("Oops!");
 			}
-		}
+//		}
 		System.out.println("finish!");
 	}
 

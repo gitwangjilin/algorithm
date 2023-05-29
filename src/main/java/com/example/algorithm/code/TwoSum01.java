@@ -20,21 +20,24 @@ public class TwoSum01 {
     public static void main(String[] args) {
         int[] nums = new int[]{2, 7, 11, 15};
         int target = 9;
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        //将原始数据放入Map中key为值，value为下标
+        HashMap<Integer, Integer> dataMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            hashMap.put(nums[i], i);
+            dataMap.put(nums[i], i);
         }
-        HashMap<Integer, Integer> resultMap = new HashMap<>();
+        int[] result = new int[]{};
+        int resultNum = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > target) {
+            int num = nums[i];
+            if (num > target) {
                 break;
             }
-            int a = target - nums[i];
-            if (hashMap.containsKey(a)) {
-                resultMap.put(i, hashMap.get(a));
-                hashMap.remove(nums[i]);
+            //目标值减当前数组值，判断map是否有
+            if (dataMap.containsKey(target - num)) {
+                result[resultNum++] = dataMap.get(target - num);
+                result[resultNum++] = dataMap.get(num);
+                dataMap.remove(num);
             }
         }
-        System.out.println(resultMap);
     }
 }

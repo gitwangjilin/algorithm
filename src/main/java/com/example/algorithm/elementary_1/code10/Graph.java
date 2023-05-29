@@ -8,7 +8,7 @@ import java.util.HashSet;
  * - Copyright (c) 2022 shangzhao.com
  * - File Name: Graph
  * - @Author: WangJiLIn
- * - Description:
+ * - Description:  图
  * 接⼝描述
  * - Functions:
  *
@@ -18,7 +18,9 @@ import java.util.HashSet;
  *************************************************************************
  ******/
 public class Graph {
+    //编号为1点的描述 编号为2点的描述
     public HashMap<Integer, Node> nodes;
+    //边集
     public HashSet<Edge> edges;
 
     public Graph() {

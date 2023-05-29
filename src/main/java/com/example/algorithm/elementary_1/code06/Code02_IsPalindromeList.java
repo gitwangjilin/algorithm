@@ -34,7 +34,6 @@ public class Code02_IsPalindromeList {
         System.out.println(isPalindrome1(test) + " | ");
         System.out.println(isPalindrome2(test) + " | ");
         System.out.println(isPalindrome3(test) + " | ");
-
     }
 
     private static boolean isPalindrome2(Node head) {

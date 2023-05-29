@@ -132,13 +132,6 @@ public class Code04_MaxSubBSTSize {
 			min = Math.min(min, rightInfo.min);
 			max = Math.max(max, rightInfo.max);
 		}
-		
-		
-		
-		
-		
-		
-
 		int maxSubBSTSize = 0;
 		if(leftInfo != null) {
 			maxSubBSTSize = leftInfo.maxSubBSTSize;
@@ -147,8 +140,7 @@ public class Code04_MaxSubBSTSize {
 			maxSubBSTSize = Math.max(maxSubBSTSize, rightInfo.maxSubBSTSize);
 		}
 		boolean isAllBST = false;
-		
-		
+
 		if(
 				// 左树整体需要是搜索二叉树
 				(  leftInfo == null ? true : leftInfo.isAllBST    )
@@ -173,22 +165,6 @@ public class Code04_MaxSubBSTSize {
 			
 			
 		}
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		return new Info(isAllBST, maxSubBSTSize, min, max);
 	}

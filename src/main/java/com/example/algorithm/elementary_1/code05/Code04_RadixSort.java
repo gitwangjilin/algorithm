@@ -58,9 +58,6 @@ public class Code04_RadixSort {
 			}
 		}
 		
-		
-		
-		
 	}
 
 	public static int getDigit(int x, int d) {

@@ -77,7 +77,6 @@ public class Code02_DeleteGivenValue {
             if (cur.value == num) {
                 //将当前的
                 pro.next = cur.next;
-                break;
             } else {
                 pro = cur;
             }
